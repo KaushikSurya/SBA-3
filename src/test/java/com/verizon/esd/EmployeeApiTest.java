@@ -121,25 +121,7 @@ public class EmployeeApiTest {
 
 	}*/
 
-	@Test	
-	public void testUpdateEmployee() throws Exception {
-		assertThat(this.empServiceMock).isNotNull();
-		
-		Employee employee = new Employee();
-		employee.setEmpId(1);
-		employee.setEmpName("Rajeev");
-		employee.setBasic(20000);
-		employee.setDept(Department.HR);
-		employee.setHra(82);
-		employee.setDateOfJoining(LocalDate.now());
-		//Employee employee = new Employee();
-		Employee c = empServiceMock.getEmployeeById(employee.getEmpId());
-		//Employee c = empServiceMock.getEmployeeById(1);	
-		//long empId;
-		when(empServiceMock.updateEmployee(employee)).thenReturn(c);
-		mockMvc.perform(put("/Employees",employee)).		andExpect(status().isOk()).		andDo(print());	
-	}
-
+	
 	@Test
 	public void testDeleteEmployee() throws Exception {
 		assertThat(this.empServiceMock).isNotNull();
